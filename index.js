@@ -118,11 +118,11 @@ app.get(
     if (isJoinSession) {
       isJoinSession = false;
       res.redirect(
-        `http://localhost:3000/session?name=${username_auth_name}&sessionid=${sessionId}`
+        `https://codexshare.netlify.app/session?name=${username_auth_name}&sessionid=${sessionId}`
       );
     } else {
       res.redirect(
-        "http://localhost:3000/userhome" +
+        "https://codexshare.netlify.app/userhome" +
           "/" +
           username_auth_id +
           "/" +
@@ -141,7 +141,7 @@ app.get("/joinsession/:sessionid", function (req, res) {
 });
 
 app.get("/logout", function (req, res) {
-  res.redirect("http://localhost:3000/");
+  res.redirect("https://codexshare.netlify.app/");
 });
 
 // const router = express.Router();
@@ -190,7 +190,7 @@ function startServer() {
   app.use("/peerjs", peerServer);
   const io = socketio(server, {
     cors: {
-      origin: "http://localhost:3000",
+      origin: "https://codexshare.netlify.app",
     },
   });
 
